@@ -1,3 +1,8 @@
+'''Module that contains entities that should map 
+a database table
+'''
+
+
 class Model:
 
     def __init__(self):

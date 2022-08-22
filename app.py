@@ -1,4 +1,4 @@
-from controller import Controller
+from controllers.interface_controller import Controller
 
 
 if __name__ == '__main__':
