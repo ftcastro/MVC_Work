@@ -6,11 +6,11 @@ from mysql.connector import Error
 
 poolname = 'mysqlpool'
 poolsize = 10
-host = '191.252.58.98'
-port = '3306'
-user = 'root'
-password = 'SmgoQu33n!'
-database = 'concursos'
+host = '---'
+port = '---'
+user = '---'
+password = '---'
+database = '---'
 
 # Pool de Conexões
 
