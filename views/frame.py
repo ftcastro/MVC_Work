@@ -8,26 +8,27 @@ class View(tk.Tk, WarningMixin, InfoMixin):
 
     PAD = 10
     MAX_BUTTONS_PER_ROW = 5
-    button_captions = [
-        "Gerar Pasta",
-        "Gerar Gabarito",
-        "Realizar Correção",
-        "Exportar Dados",
-    ]
 
-    def __init__(self, controller):
+    def __init__(
+        self,
+    ):
 
         print("Init - View")
 
         super().__init__()
 
         self.value_var = tk.StringVar()
-
-        self.controller = controller
         self.title("Correção de Concursos - URBAM")
         self.geometry("1000x700")
         self.resizable(0, 0)
         self.iconbitmap("img/icon.ico")
+        self.buttons_captions_text = [
+            "Gerar Pasta",
+            "Gerar Gabarito",
+            "Realizar Correção",
+            "Exportar Dados",
+        ]
+        self.button_captions = {""}
 
         self._make_main_frame()
         self._make_combo()
@@ -70,15 +71,12 @@ class View(tk.Tk, WarningMixin, InfoMixin):
 
                 buttons_in_row = 0
 
-            btn = ttk.Button(
+            self.button_captions[caption] = ttk.Button(
                 frm,
                 text=caption,
-                command=(
-                    lambda button=caption: self.controller.on_button_click(button)
-                ),
                 width=25,
             )
-            btn.pack(fill="x", expand=1, side="left")
+            self.button_captions[caption].pack(fill="x", expand=1, side="left")
 
     def _make_combo(self):
 
@@ -86,23 +84,6 @@ class View(tk.Tk, WarningMixin, InfoMixin):
         drop.config(width=40)
         drop["values"] = ""
         drop.pack(padx=self.PAD, pady=self.PAD, side=tk.TOP)
-
-    def _make_path(self, path):
-
-        self.isExist = os.path.exists(path)
-
-        if not self.isExist:
-            os.makedirs(path)
-            tk.messagebox.showinfo(
-                title="Correção de Provas - URBAM",
-                message="Diretório criado com sucesso.",
-            )
-            print("Diretório criado!")
-        else:
-            tk.messagebox.showwarning(
-                title="Correção de Provas - URBAM", message="O diretório já existe."
-            )
-            print("Diretório já existe")
 
     def _center_window(self):
         self.update()
