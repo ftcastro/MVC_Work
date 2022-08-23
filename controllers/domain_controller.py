@@ -1,5 +1,5 @@
-import db
-import os
+"""Unused imports removed"""
+
 from views.frame import View
 from services.your_service import DomaineService
 from controllers.interface_controller import AbstractController

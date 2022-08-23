@@ -1,6 +1,8 @@
-from controllers.interface_controller import Controller
+"""The entry point was fixed with the correct class names"""
+
+from controllers.interface_controller import AbstractController
 
 
 if __name__ == '__main__':
-    controller = Controller()
+    controller = AbstractController()
     controller.main()
