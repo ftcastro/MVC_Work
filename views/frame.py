@@ -1,10 +1,9 @@
 import tkinter as tk
-import os
 from tkinter import ttk, scrolledtext
 from views.alerts import WarningMixin, InfoMixin
 
 
-class View(tk.Tk, WarningMixin, InfoMixin):
+class View(WarningMixin, InfoMixin):
 
     PAD = 10
     MAX_BUTTONS_PER_ROW = 5
@@ -35,10 +34,6 @@ class View(tk.Tk, WarningMixin, InfoMixin):
         self._make_scroll()
         self._make_buttons()
         self._center_window()
-
-    def main(self):
-        print("Main - View")
-        self.mainloop()
 
     def _make_main_frame(self):
         self.main_frm = ttk.Frame(self)
