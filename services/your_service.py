@@ -5,10 +5,7 @@ COuld call the model if tasks depends on it
 
 import db
 import os
-import tkinter as tk
 
-from models import Model
-from views import View
 
 
 class DomaineService:

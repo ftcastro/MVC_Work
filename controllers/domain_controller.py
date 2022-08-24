@@ -1,24 +1,18 @@
 """Unused imports removed"""
 
 from views.frame import View
-from services.your_service import DomaineService
 from controllers.interface_controller import AbstractController
 
 
 class Controller(AbstractController):
-    def __init__(self, view: View, model):
-
-        print("Init - Controller")
-        self.service = DomaineService(model)
-        self.view = view()
-
-        for k in self.view.button_captions.keys():
-            self.view.buttons[k].configure(
-                command=self.predict
-            )  # configure here the command to be laucnh
-
-        # Pass to view.py links on root frame and controller object
-
+    def __init__(self):
+        pass
+    
+    def bind(self,view, service):
+        self.view = view
+        self.service = service
+        for k in self.view.buttons.keys():
+            pass # TODO to configure buttons
     def consulta_area(self):
         self.service.consulta_area()
         print("Drop Current = ", self.view.tela1.drop.current())
